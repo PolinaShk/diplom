@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Annotation Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#about">О нас</a></li>
+                <li class="nav-item"><a href="#info">Информация</a></li>
+                <li class="nav-item"><a href="#product">Аннотация</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about" class="about">
+        <h2 class="about__title">О нас</h2>
+        <p class="about__text">Мы — команда профессионалов, стремящихся предоставить лучшие решения для наших клиентов.
+            Наша цель — обеспечить высокое качество услуг и удовлетворение потребностей каждого клиента.</p>
+    </section>
+
+    <section id="info" class="info">
+        <h2 class="info__title">Информация</h2>
+        <p class="info__text">Данный проект разрабатывается как web-сервис для разметки изображений и дальнейшего экспорта. 
+            Сервис позволяет загружать одну или несколько фотографий, выделять области с помощью рамок или других фигур, 
+            и автоматически сохранять аннотации.</p>
+        <div class="info__references">
+            <h3 class="info__references-title">Ссылки на литературу:</h3>
+            <ul class="info__references-list">
+                <li class="info__reference-item"><a href="https://developer.mozilla.org/ru/docs/Web/API/Canvas_API" class="info__reference-link">Canvas API</a></li>
+                <li class="info__reference-item"><a href="https://www.makesense.ai/" class="info__reference-link">Вдохновение</a></li>
+                <li class="info__reference-item"><a href="https://habr.com/ru/companies/data_light/articles/852848/" class="info__reference-link">В возможных планах</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <div id="product" class="annotation-tool">
+        <h1 class="annotation-tool__title">Инструмент аннотации изображений</h1>
+        
+        <div class="annotation-tool__controls">
+            <div class="upload-section">
+                <div class="upload-option">
+                    <input type="radio" id="single-image" name="upload-type" checked>
+                    <label for="single-image">Одно изображение</label>
+                </div>
+                <div class="upload-option">
+                    <input type="radio" id="multiple-images" name="upload-type">
+                    <label for="multiple-images">Несколько изображений</label>
+                </div>
+                
+                <div class="file-inputs">
+                    <input type="file" id="single-upload" accept="image/*" class="file-input">
+                    <input type="file" id="multiple-upload" accept="image/*" multiple style="display: none;" class="file-input">
+                </div>
+            </div>
+
+            <div class="tool-section">
+                <label for="tool-type">Инструмент:</label>
+                <select id="tool-type" class="tool-select">
+                    <option value="rectangle">Прямоугольник (рамка)</option>
+                    <option value="circle">Круг</option>
+                    <option value="freehand">Произвольная область</option>
+                </select>
+                
+                <input type="color" id="annotation-color" value="#ff0000" title="Цвет аннотации">
+                <input type="color" id="bg-color" value="#00ff0055" title="Цвет заливки">
+                
+                <div class="zoom-controls">
+                    <button id="zoom-in" class="zoom-btn">+</button>
+                    <button id="zoom-out" class="zoom-btn">-</button>
+                    <button id="zoom-reset" class="zoom-btn">100%</button>
+                    <span id="zoom-level">100%</span>
+                </div>
+                
+                <button id="clear-annotation" class="control-btn">Очистить</button>
+                <button id="next-image" class="control-btn" style="display: none;">Следующее</button>
+            </div>
+        </div>
+
+        <div class="annotation-tool__preview">
+            <div class="canvas-container">
+                <canvas id="annotation-canvas"></canvas>
+                <div id="canvas-overlay" class="canvas-overlay"></div>
+            </div>
+            
+            <div class="info-panel">
+                <div class="current-image-info">
+                    <h3>Текущее изображение:</h3>
+                    <p id="current-file-name">-</p>
+                </div>
+                <div class="annotation-info">
+                    <h3>Аннотация:</h3>
+                    <p>X: <span id="annotation-x">0</span></p>
+                    <p>Y: <span id="annotation-y">0</span></p>
+                    <p>Ширина: <span id="annotation-width">0</span></p>
+                    <p>Высота: <span id="annotation-height">0</span></p>
+                </div>
+                <div class="progress-info" style="display: none;">
+                    <h3>Прогресс:</h3>
+                    <p>Обработано: <span id="processed-count">0</span> / <span id="total-count">0</span></p>
+                    <progress id="progress-bar" value="0" max="100"></progress>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
