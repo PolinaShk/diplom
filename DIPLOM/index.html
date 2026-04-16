@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ImageMarkup - Эстетичный инструмент разметки изображений | Дипломный проект</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">✧</span>
+                <span class="logo-text">ImageMarkup</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#about" class="nav-link">О нас</a></li>
+                    <li class="nav-item"><a href="#info" class="nav-link">Информация</a></li>
+                    <li class="nav-item"><a href="#product" class="nav-link">Разметка</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">✨ Дипломный проект</div>
+                <h1 class="hero-title">Интеллектуальная <span class="gradient-text">разметка</span> изображений</h1>
+                <p class="hero-description">
+                    Профессиональный инструмент для создания датасетов, разметки и экспорта размеченных областей.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat"><span class="stat-num">3</span> инструмента</div>
+                    <div class="stat"><span class="stat-num">∞</span> изображений</div>
+                    <div class="stat"><span class="stat-num">JSON</span> экспорт</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">О проекте</span>
+                    <h2 class="section-title">Создано с любовью к деталям</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-card glass-card">
+                        <div class="card-icon">🎯</div>
+                        <h3>Точность</h3>
+                        <p>Выделяйте объекты с помощью прямоугольников, кругов или произвольных областей.</p>
+                    </div>
+                    <div class="about-card glass-card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Эффективность</h3>
+                        <p>Пакетная обработка папок с изображениями и экспорт всех разметок.</p>
+                    </div>
+                    <div class="about-card glass-card">
+                        <div class="card-icon">🎨</div>
+                        <h3>Эстетика</h3>
+                        <p>Современный интерфейс для комфортной работы.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="info" class="info">
+            <div class="container">
+                <div class="info-wrapper glass-card">
+                    <div class="info-content">
+                        <span class="section-tag light">Технологии</span>
+                        <h2 class="section-title light">Современный стек</h2>
+                        <p class="info-text">Web-сервис разработан с использованием нативного JavaScript и Canvas API.</p>
+                        <div class="info__references">
+                            <h3 class="info__references-title">📚 Литература</h3>
+                            <ul class="info__references-list">
+                                <li class="info__reference-item"><a href="https://developer.mozilla.org/ru/docs/Web/API/Canvas_API" class="info__reference-link" target="_blank">Canvas API — MDN</a></li>
+                                <li class="info__reference-item"><a href="https://www.makesense.ai/" class="info__reference-link" target="_blank">makesense.ai — вдохновение</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-decoration">
+                        <div class="floating-shape"></div>
+                        <div class="floating-shape second"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="product" class="annotation-tool-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Инструмент</span>
+                    <h2 class="section-title">Разметка изображений</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="annotation-tool glass-card">
+                    <div class="annotation-tool__controls">
+                        <div class="upload-section">
+                            <div class="upload-options-group">
+                                <label class="radio-card">
+                                    <input type="radio" name="upload-type" id="singleImageRadio" value="single" checked>
+                                    <span class="radio-label">🖼️ Одно изображение</span>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="upload-type" id="multipleImagesRadio" value="folder">
+                                    <span class="radio-label">📁 Папка с изображениями</span>
+                                </label>
+                            </div>
+                            <div class="file-inputs">
+                                <label class="file-label" id="singleUploadLabel">
+                                    <span>📂 Выбрать файл</span>
+                                    <input type="file" id="singleUpload" accept="image/*" style="display: none;">
+                                </label>
+                                <label class="folder-label" id="folderUploadLabel" style="display: none;">
+                                    <span>📂 Выбрать папку</span>
+                                    <input type="file" id="folderUpload" accept="image/*" multiple webkitdirectory directory style="display: none;">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="tool-section">
+                            <div class="tool-row">
+                                <div class="tool-select-wrapper">
+                                    <label>🔧 Инструмент</label>
+                                    <select id="toolType" class="tool-select">
+                                        <option value="rectangle">◻️ Прямоугольник</option>
+                                        <option value="circle">● Круг</option>
+                                        <option value="freehand">✏️ Произвольная</option>
+                                    </select>
+                                </div>
+                                <div class="color-pickers">
+                                    <div class="color-item">
+                                        <label>Контур</label>
+                                        <input type="color" id="annotationColor" value="#FF6B6B">
+                                    </div>
+                                    <div class="color-item">
+                                        <label>Заливка</label>
+                                        <input type="color" id="bgColor" value="#FFB347">
+                                    </div>
+                                </div>
+                                <label class="checkbox-modern">
+                                    <input type="checkbox" id="saveCropped" checked>
+                                    <span>💾 Сохранять фрагменты</span>
+                                </label>
+                            </div>
+                            
+                            <div class="tool-row">
+                                <div class="zoom-controls">
+                                    <button id="zoomIn" class="zoom-btn">+</button>
+                                    <button id="zoomOut" class="zoom-btn">−</button>
+                                    <button id="zoomReset" class="zoom-btn reset">⟳</button>
+                                    <span id="zoomLevel">100%</span>
+                                </div>
+                                <button id="clearAnnotation" class="control-btn clear">🗑️ Очистить</button>
+                                <button id="nextImage" class="control-btn next" style="display: none;">➡️ Следующее</button>
+                                <button id="saveAnnotation" class="control-btn save">💾 Сохранить</button>
+                                <button id="exportAll" class="control-btn export">📦 Экспорт всех</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="annotation-tool__preview">
+                        <div class="canvas-container">
+                            <canvas id="annotationCanvas"></canvas>
+                        </div>
+                        
+                        <div class="info-panel glass-panel">
+                            <div class="current-image-info">
+                                <h3>📷 Текущее изображение</h3>
+                                <p id="currentFileName" class="filename-display">—</p>
+                            </div>
+                            
+                            <div class="annotation-info">
+                                <h3>📐 Параметры выделения</h3>
+                                <div class="info-grid">
+                                    <div class="info-row"><span>X:</span> <span id="annotationX">0</span> px</div>
+                                    <div class="info-row"><span>Y:</span> <span id="annotationY">0</span> px</div>
+                                    <div class="info-row"><span>Ширина:</span> <span id="annotationWidth">0</span> px</div>
+                                    <div class="info-row"><span>Высота:</span> <span id="annotationHeight">0</span> px</div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-info" id="progressInfo" style="display: none;">
+                                <h3>📊 Прогресс</h3>
+                                <progress id="progressBar" value="0" max="100"></progress>
+                                <p><span id="processedCount">0</span> / <span id="totalCount">0</span> обработано</p>
+                            </div>
+
+                            <div class="quick-guide">
+                                <h3>✨ Быстрое руководство</h3>
+                                <ul class="guide-list">
+                                    <li><strong>Загрузка:</strong> выберите папку или файл</li>
+                                    <li><strong>Рисование:</strong> зажмите ЛКМ и тяните</li>
+                                    <li><strong>💾 Сохранить:</strong> JSON + фрагмент</li>
+                                    <li><strong>📦 Экспорт всех:</strong> все разметки + фрагменты</li>
+                                    <li><strong>➕/➖:</strong> масштаб изображения</li>
+                                    <li><strong>🔄 Обновление страницы:</strong> данные сохраняются автоматически!</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 ImageMarkup — дипломный проект</p>
+        </div>
+    </footer>
+
+    <script src="script.js?v=2"></script>
+</body>
+</html>
